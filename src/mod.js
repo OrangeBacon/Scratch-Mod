@@ -4,14 +4,17 @@
     
     // Shows the status of the extension 0 = red, 1 = yellow, and 2 = green
     ext._getStatus = function() {
-        return {status: 2, msg: 'Ready'};
+        return {status: 2, msg: 'Ready'
+    };
+        
+    ext.comment = function() {
     };
     // Descriptions of the blocks and menus the extension adds
     var descriptor = {
         blocks: [
-          [' ', 'hello world'] 
+          [' ', 'comment', 'comment'] 
         ]
     };
     // Register the extension
-    ScratchExtensions.register('Hello World', descriptor, ext);
+    ScratchExtensions.register('Scratch-Mod', descriptor, ext);
 })({});
