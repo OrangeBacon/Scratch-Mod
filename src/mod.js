@@ -1,20 +1,25 @@
 (function(ext) {
-    // Code to be run when the user closes the window, reloads the page, etc.    
+    // Cleanup function when the extension is unloaded
     ext._shutdown = function() {};
-    
-    // Shows the status of the extension 0 = red, 1 = yellow, and 2 = green
+
+    // Status reporting code
+    // Use this to report missing hardware, plugin or unsupported browser
     ext._getStatus = function() {
-        return {status: 2, msg: 'Ready'
+        return {status: 2, msg: 'Ready'};
     };
-        
-    ext.comment = function() {
+
+    ext.my_first_block = function() {
+        // Code that gets executed when the block is run
     };
-    // Descriptions of the blocks and menus the extension adds
+
+    // Block and block menu descriptions
     var descriptor = {
         blocks: [
-          [' ', 'comment', 'comment'] 
+            // Block type, block name, function name
+            [' ', 'my first block', 'my_first_block'],
         ]
     };
+
     // Register the extension
-    ScratchExtensions.register('Scratch-Mod', descriptor, ext);
+    ScratchExtensions.register('My first extension', descriptor, ext);
 })({});
