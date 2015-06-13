@@ -7,6 +7,7 @@
     ext._getStatus = function() {
         return {status: 2, msg: 'Ready'};
     };
+    
     // if reporter block
     ext.bool_report = function(bool, out1, out2) {
         if (bool) {
