@@ -10,10 +10,10 @@
 
     ext.if_report = function(bool, out1, out2) {
         if (bool) {
-            return out1
+            return out1;
         } else {
-            return out2
-        }
+            return out2;
+        };
     };
 
     // Block and block menu descriptions
