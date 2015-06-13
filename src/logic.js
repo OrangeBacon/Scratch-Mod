@@ -8,7 +8,7 @@
         return {status: 2, msg: 'Ready'};
     };
 
-    ext.if_report = function(bool, out1, out2) {
+    ext.bool_report = function(bool, out1, out2) {
         if (bool) {
             return out1;
         } else {
@@ -19,7 +19,7 @@
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
-            ['r', 'if %b then %s else %s', 'if_report', true, "hello", "world"],
+            ['r', 'if %b then %s else %s', 'bool_report', true, "hello", "world"],
         ]
     };
 
