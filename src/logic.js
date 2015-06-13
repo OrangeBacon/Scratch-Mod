@@ -8,18 +8,22 @@
         return {status: 2, msg: 'Ready'};
     };
 
-    ext.power = function(base, exponent) {
-        return Math.pow(base, exponent);
+    ext.if_report = function(if, out1, out2) {
+        if (if) {
+            return out1
+        } else {
+            return out2
+        }
     };
 
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
-            ['r', '%n to the power of %n', 'power', 2, 3],
+            ['r', 'if %b then %s else %s', 'if_report', true, "hello", "world"],
         ]
     };
 
     // Register the extension
-    ScratchExtensions.register('Mod - Math', descriptor, ext);
+    ScratchExtensions.register('Mod - Logic', descriptor, ext);
 })({});
 
