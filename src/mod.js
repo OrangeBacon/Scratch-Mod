@@ -8,12 +8,12 @@
         return {status: 2, msg: 'Ready'};
     };
 
-    ext.comment = function() {};
+    ext.comment = function(string) {};
 
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
-            [' ', '/', 'comment'],
+            [' ', '/ %s', 'comment', 'comment'],
         ]
     };
 
