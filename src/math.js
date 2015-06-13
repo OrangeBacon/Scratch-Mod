@@ -8,15 +8,17 @@
         return {status: 2, msg: 'Ready'};
     };
 
-    ext.comment = function(string) {};
+    ext.power = function(base, exponent) {
+        return Math.pow(base, exponent);
+    };
 
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
-            [' ', '/ %s', 'comment', 'comment'],
+            ['r', '%n to the power of %n', 'power', 2, 3],
         ]
     };
 
     // Register the extension
-    ScratchExtensions.register('Mod - Misc', descriptor, ext);
+    ScratchExtensions.register('Mod - Math', descriptor, ext);
 })({});
