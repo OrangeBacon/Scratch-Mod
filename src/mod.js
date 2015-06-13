@@ -18,5 +18,5 @@
     };
 
     // Register the extension
-    ScratchExtensions.register('Scratch-Mod', descriptor, ext);
+    ScratchExtensions.register('Mod - Misc', descriptor, ext);
 })({});
