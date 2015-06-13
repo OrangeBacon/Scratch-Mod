@@ -8,8 +8,8 @@
         return {status: 2, msg: 'Ready'};
     };
 
-    ext.if_report = function(if, out1, out2) {
-        if (if) {
+    ext.if_report = function(bool, out1, out2) {
+        if (bool) {
             return out1
         } else {
             return out2
