@@ -12,7 +12,7 @@
         return Math.pow(base, exponent);
     };
     
-    ext.root = function(n,root) {
+    ext.root = function(root,n) {
         return Math.pow(n,1/root);
     }
 
