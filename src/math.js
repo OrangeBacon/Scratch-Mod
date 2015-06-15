@@ -20,7 +20,7 @@
     var descriptor = {
         blocks: [
             ['r', '%n to the power of %n', 'power', 2, 3],
-            ["r", "%n th root of %n", "root", 3, 8]
+            ["r", "%n th root of %n", "root", 3, 8],
         ]
     };
 
