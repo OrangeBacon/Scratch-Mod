@@ -17,13 +17,23 @@
     ext.title_s = function(string) {
         document.title = string;
     };
-
+    
+    ext.page_back_r = function () {
+        return document.body.style.background;
+    };
+    
+    ext.page_back_s = function (url) {
+        return document.body.style.background = "url(url) no-repeat right top";
+    };
+    
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
             [' ', '/ %s', 'comment', 'comment'],
             ["r", "tab name", "title_r"],
             [" ", "Set tab name to %s", "title_s", "Hello World"],
+            ["r", "page background", "page_back_r"],
+            [" ", "Set page background to %s", "page_back_s", "url"],
         ]
     };
 
