@@ -38,7 +38,7 @@
     var descriptor = {
         blocks: [
             ['r', 'if %b then %s else %s', 'bool_report', true, "hello", "world"],
-            ["r", "%n %m.equal %n" , "equal", 1, ,2]
+            ["r", "%n %m.equal %n" , "equal", 1,"=",2],
         ]
         menus: [
             equal: ["≤","<","=","≠",">","≥"],
