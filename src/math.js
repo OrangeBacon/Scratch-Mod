@@ -11,11 +11,16 @@
     ext.power = function(base, exponent) {
         return Math.pow(base, exponent);
     };
+    
+    ext.root = function(n,root) {
+        return Math.pow(n,1/root);
+    }
 
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
             ['r', '%n to the power of %n', 'power', 2, 3],
+            ["r", "%n th root of %n", "root", 3, 8]
         ]
     };
 
