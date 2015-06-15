@@ -20,7 +20,7 @@
     //equality bolean
     ext.equal = function(x,equal,y) {
         if (equal=="≤") {
-            return (x =< y);
+            return (x <= y);
         }else if (equal=="<") {
             return (x < y);
         }else if (equal=="=") {
@@ -30,7 +30,7 @@
         }else if (equal==">") {
             return (x > y);
         }else if (equal=="≥") {
-            return (x => y);
+            return (x >= y);
         }
     }
 
