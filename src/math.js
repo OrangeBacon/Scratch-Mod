@@ -1,4 +1,5 @@
 (function(ext) {
+    var counter = 0
     // Cleanup function when the extension is unloaded
     ext._shutdown = function() {};
 
@@ -14,7 +15,19 @@
     
     ext.root = function(root,n) {
         return Math.pow(n,1/root);
-    }
+    };
+    
+    ext.counter_r = function() {
+        return counter;
+    };
+    
+    ext.counter_s = function() {
+        counter = 0;
+    };
+    
+    ext.counter_a = function(no) {
+        counter = counter + no;
+    };
 
     // Block and block menu descriptions
     var descriptor = {
