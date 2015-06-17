@@ -14,18 +14,18 @@
         return status;
     };
     
-    ext.support = function() {
-        localStorage.setItem("$check%code", "yes");
-        if(localStorage.getItem("$check%code") == "yes") {
-            error = 1;
-            status = "Yes, files can be saved";
-            return true;
-        } else {
-            error = 0;
-            status = "Sorry, files cannot be saved";
-            return false;
-        };
-    };
+    //ext.support = function() {
+    //    localStorage.setItem("$check%code", "yes");
+    //    if(localStorage.getItem("$check%code") == "yes") {
+    //        error = 1;
+    //        status = "Yes, files can be saved";
+    //        return true;
+    //    } else {
+    //        error = 0;
+    //        status = "Sorry, files cannot be saved";
+    //        return false;
+    //    };
+    //};
     
     ext.create = function(value, key) {
         if (error != 0) {
@@ -92,7 +92,7 @@
         blocks: [
             ["r", "error","error"],
             ["r", "status","status"],
-            ["b", "suport saving?","suport"],
+    //        ["b", "suport saving?","suport"],
             [" ", "create var with value %s and key %s","create","value","key"],
             ["r", "var with key = %s","return","key"],
             [" ", "set var with key %s to %s","set","key","value"],
