@@ -15,7 +15,8 @@
     };
     
     ext.support = function() {
-        if(typeof(Storage) !== "undefined") {
+        localStorage.setItem("$check%code", "yes");
+        if(localStorage.getItem("$check%code") == "yes") {
             error = 1;
             status = "Yes, files can be saved";
             return true;
