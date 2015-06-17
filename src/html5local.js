@@ -99,5 +99,5 @@
             [" ", "delete var with key %s","del","key"],
         ]
     };
-    ScratchExtensions.register('Mod - Logic', descriptor, ext);
+    ScratchExtensions.register('Mod - LocalHTML5', descriptor, ext);
 })({});
