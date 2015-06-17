@@ -1,6 +1,6 @@
 (function(ext) {
     var status = "no";
-    var error = 0;
+    var error = 1;
     ext._shutdown = function() {};
     ext._getStatus = function() {
         return {status: 2, msg: 'Ready'};
