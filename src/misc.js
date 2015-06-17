@@ -23,7 +23,7 @@
     };
     
     ext.page_back_s = function (url) {
-        return document.body.style.background = "url(" + url + ") no-repeat right top";
+        return document.body.style.background = url;
     };
     
     // Block and block menu descriptions
