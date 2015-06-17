@@ -1,50 +1,83 @@
 (function(ext) {
-    // Cleanup function when the extension is unloaded
+    var status = "no";
+    var error = 0;
     ext._shutdown = function() {};
-
-    // Status reporting code
-    // Use this to report missing hardware, plugin or unsupported browser
     ext._getStatus = function() {
         return {status: 2, msg: 'Ready'};
     };
     
-    // if reporter block
-    ext.bool_report = function(bool, out1, out2) {
-        if (bool) {
-            return out1;
+    ext.error = function() {
+        return error;
+    };
+    
+    ext.status = function() {
+        return status;
+    };
+    
+    ext.support = function() {
+        if(typeof(Storage) !== "undefined") {
+            error = 1;
+            status = "Yes, files can be saved";
+            return "Yes, files can be saved";
         } else {
-            return out2;
+            error = 0;
+            status = "Sorry, files cannot be saved";
+            return "Sorry, files cannot be saved";
+        }
+    };
+    
+    ext.create = function(value, key) {
+        if (error != 0) {
+            status = "File Saved";
+            localStorage.setItem(key, value);
+        } else {
+            status = "Sorry file saving failed";
         };
     };
     
-    //equality bolean
-    ext.equal = function(x,equal,y) {
-        if (equal=="≤") {
-            return (x <= y);
-        }else if (equal=="<") {
-            return (x < y);
-        }else if (equal=="=") {
-            return (x == y);
-        }else if (equal=="≠") {
-            return (x != y);
-        }else if (equal==">") {
-            return (x > y);
-        }else if (equal=="≥") {
-            return (x >= y);
-        }
-    }
-
-    // Block and block menu descriptions
+    ext.return = function(key) {
+        if (error != 0) {
+            if (localStorage.getItem(key) != "null") {
+                status = "Item returned";
+                return localStorage.getItem(key);
+            } else {
+                status = "Item does not exist";
+                return "null";
+            };
+        } else {
+            status = "Sorry file return failed";
+        };
+    };
+    
+    ext.set = function(value, key) {
+        if (error != 0) {
+            if (localStorage.getItem(key) != "null") {
+                status = "Item set";
+                localStorage.getItem(key) = value;
+            } else {
+                status = "Item does not exist";
+            };
+        } else {
+            status = "Sorry file set failed";
+        };
+    };
+    ext.exist = function(key) {
+        if (error != 0) {
+            if (localStorage.getItem(key) != "null") {
+                return true;
+            } else {
+                return false;
+            };
+        } else {
+            status = "Sorry file exist check failed";
+            return false;
+        };
+    };
+    
     var descriptor = {
         blocks: [
-            ['r', 'if %b then %s else %s', 'bool_report', true, "hello", "world"],
-            ["b", "%n %m.equal %n" , "equal", 1,"=",2],
-        ],
-        menus: {
-            equal: ["≤","<","=","≠",">","≥"],
-        }
+            
+        ]
     };
-
-    // Register the extension
     ScratchExtensions.register('Mod - Logic', descriptor, ext);
 })({});
