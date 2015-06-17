@@ -18,12 +18,12 @@
         if(typeof(Storage) !== "undefined") {
             error = 1;
             status = "Yes, files can be saved";
-            return "Yes, files can be saved";
+            return true;
         } else {
             error = 0;
             status = "Sorry, files cannot be saved";
-            return "Sorry, files cannot be saved";
-        }
+            return false;
+        };
     };
     
     ext.create = function(value, key) {
@@ -49,7 +49,7 @@
         };
     };
     
-    ext.set = function(value, key) {
+    ext.set = function(key,value) {
         if (error != 0) {
             if (localStorage.getItem(key) != "null") {
                 status = "Item set";
@@ -74,9 +74,29 @@
         };
     };
     
+    ext.del = function(key) {
+        if (error != 0) {
+            if (localStorage.getItem(key) != "null") {
+                localStorage.removeItem(key);
+                status = "Item removed";
+            } else {
+                status = "Item does not exist";
+            };
+        } else {
+            status = "Sorry deletion failed";
+        };
+    };
+    
     var descriptor = {
         blocks: [
-            
+            ["r", "error","error"],
+            ["r", "status","status"],
+            ["b", "suport saving?","suport"],
+            [" ", "create var with value %s and key %s","create","value","key"],
+            ["r", "var with key = %s","return","key"],
+            [" ", "set var with key %s to %s","set","key","value"],
+            ["b", "var with key %s exists?","exist","key"],
+            [" ", "delete var with key %s","del","key"],
         ]
     };
     ScratchExtensions.register('Mod - Logic', descriptor, ext);
