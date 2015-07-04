@@ -23,8 +23,8 @@
         return document.getElementsByName("content")[0].value;
     };
      
-    ext.commentset = function(value) {
-        document.getElementsByName("content")[0].value = value;
+    ext.commentset = function(text) {
+        document.getElementsByName("content")[0].value = text;
     };
     
     var descriptor = {
