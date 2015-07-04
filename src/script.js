@@ -19,10 +19,14 @@
     ext.jar3 = function(script) {
         return eval(script);
     }
-     ext.commentget = function() {
-         return document.getElementsByName("fname")[0].value
-     };
+    ext.commentget = function() {
+        return document.getElementsByName("content")[0].value;
+    };
      
+    ext.commentset = function(value) {
+        document.getElementsByName("content")[0].value = value;
+    };
+    
     var descriptor = {
         blocks: [
             [' ', 'create block: name %s params %s js %s type %s desc %s', 'create', "custom", "hello", "return true", "r", "true %s"],
@@ -30,6 +34,7 @@
             ['r', 'eval %s', 'jar2', 'return true'],
             ['b', 'eval %s', 'jar3', 'return true'],
             ["r", "comment value", "commentget"]
+            [" ", "set comment to %s", "commentset", "comment"]
         ],
     };
 
