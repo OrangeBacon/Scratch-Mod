@@ -16,6 +16,8 @@
         blocks: [
             [' ', 'create block: name %s params %s js %s type %s desc %s', 'create', "custom", "hello", "return true", "r", "true %s"],
             [' ', 'eval %s', 'jar', 'return true'],
+            ['r', 'eval %s', 'jar', 'return true'],
+            ['b', 'eval %s', 'jar', 'return true'],
         ],
     };
 
