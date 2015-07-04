@@ -12,12 +12,12 @@
         eval(script);
     }
     
-    ext.ja2r = function(script) {
-        eval(script);
+    ext.jar2 = function(script) {
+        return eval(script);
     }
     
     ext.jar3 = function(script) {
-        eval(script);
+        return eval(script);
     }
     
     var descriptor = {
