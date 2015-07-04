@@ -12,12 +12,20 @@
         eval(script);
     }
     
+    ext.ja2r = function(script) {
+        eval(script);
+    }
+    
+    ext.jar3 = function(script) {
+        eval(script);
+    }
+    
     var descriptor = {
         blocks: [
             [' ', 'create block: name %s params %s js %s type %s desc %s', 'create', "custom", "hello", "return true", "r", "true %s"],
             [' ', 'eval %s', 'jar', 'return true'],
-            ['r', 'eval %s', 'jar', 'return true'],
-            ['b', 'eval %s', 'jar', 'return true'],
+            ['r', 'eval %s', 'jar2', 'return true'],
+            ['b', 'eval %s', 'jar3', 'return true'],
         ],
     };
 
