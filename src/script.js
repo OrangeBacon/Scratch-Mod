@@ -10,15 +10,15 @@
     
     ext.jar = function(script) {
         eval(script);
-    }
+    };
     
     ext.jar2 = function(script) {
         return eval(script);
-    }
+    };
     
     ext.jar3 = function(script) {
         return eval(script);
-    }
+    };
     ext.commentget = function() {
         return document.getElementsByName("content")[0].value;
     };
@@ -33,8 +33,8 @@
             [' ', 'eval %s', 'jar', 'return true'],
             ['r', 'eval %s', 'jar2', 'return true'],
             ['b', 'eval %s', 'jar3', 'return true'],
-            ["r", "comment value", "commentget"]
-            [" ", "set comment to %s", "commentset", "comment"]
+            ["r", "comment value", "commentget"],
+            [" ", "set comment to %s", "commentset", "comment"],
         ],
     };
 
