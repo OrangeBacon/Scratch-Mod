@@ -36,13 +36,22 @@
     ext.ins = function() {
         return true;
     }
-
+	
+	ext.yes = function() {
+		return true;
+	}
+	
+	ext.no = function() {
+		return false;
+	}
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
             ['r', 'if %b then %s else %s', 'bool_report', true, "hello", "world"],
             ["b", "%n %m.equal %n" , "equal", 1,"=",2],
             ["b", "Hungry For Blocks Installed", "ins"],
+            ["b", "true", "yes"],
+            ["b", "false", "no"],
         ],
         menus: {
             equal: ["≤","<","=","≠",">","≥"],
