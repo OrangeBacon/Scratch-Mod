@@ -3,6 +3,7 @@
     var blocks = "";
     var menu = "";
     var script = "";
+    var counter = 1;
     
     ext._shutdown = function() {};
     ext._getStatus = function() {
@@ -17,8 +18,9 @@
     };
     
     ext.block = function(blockname, params, js, type, desc) {
-        blocks = blocks + "\[\'" + type + "\'\, \'" + desc + "\'\, \'" + blockname + "\'\]\,"
-        script = script + "ext\." + blockname + " \= function\(" + params + "\) \{" + js + "\}\;"
+        blocks = blocks + "\[\'" + type + "\'\, \'" + desc + "\'\, \'" + blockname + "\'\]\,";
+        script = script + "ext\.block" + counter + " \= function\(" + params + "\) \{" + js + "\}\;";
+        counter++;
         //eval("\(function\(ext\) \{ext\._shutdown \= function\(\) \{\}; ext\._getStatus \= function\(\) \{return \{status\: 2, msg\: \'Ready\'\};\}; ext\." + name + " \= function\(" + params + "\) \{" + js + "\}; var descriptor \= \{blocks: \[\[\'" + type + "\', \'" + desc + "'\, \'" + name + "\'\]\,\]\,\};ScratchExtensions\.register\(\'" + name + "\'\, descriptor\, ext\)\;\}\)\(\{\}\)\;")
     };
     
