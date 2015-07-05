@@ -15,7 +15,7 @@
     };
     
     ext.title_s = function(string) {
-        while true {
+        while (true) {
             document.title = string;
         };
     };
