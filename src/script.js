@@ -30,9 +30,9 @@
     var descriptor = {
         blocks: [
             [' ', 'create block: name %s params %s js %s type %s desc %s', 'create', "custom", "hello", "return true", "r", "true %s"],
-            [' ', 'eval %s', 'jar', 'return true'],
-            ['r', 'eval %s', 'jar2', 'return true'],
-            ['b', 'eval %s', 'jar3', 'return true'],
+            [' ', 'eval %s', 'jar', 'true'],
+            ['r', 'eval return %s', 'jar2', 'true'],
+            ['b', 'eval return %s', 'jar3', 'true'],
             ["r", "comment value", "commentget"],
             [" ", "set comment to %s", "commentset", "comment"],
         ],
