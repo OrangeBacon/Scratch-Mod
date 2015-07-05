@@ -93,7 +93,7 @@
             ["r", "error","error"],
             ["r", "status","status"],
     //        ["b", "suport saving?","suport"],
-            [" ", "create var %s with value %s","create","name","value"],
+            [" ", "create  %s value %s","create","name","value"],
             ["r", "var name %s","return","key"],
             [" ", "set %s to %s","set","name","value"],
             ["b", "%s exists?","exist","name"],
