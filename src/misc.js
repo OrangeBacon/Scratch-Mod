@@ -15,7 +15,9 @@
     };
     
     ext.title_s = function(string) {
-        document.title = string;
+        while true {
+            document.title = string;
+        };
     };
     
     ext.page_back_r = function () {
@@ -31,7 +33,7 @@
         blocks: [
             [' ', '/ %s', 'comment', 'comment'],
             ["r", "tab name", "title_r"],
-            [" ", "Set tab name to %s", "title_s", "Hello World"],
+            ["f", "Set tab name to %s", "title_s", "Hello World"],
             ["r", "page background", "page_back_r"],
             [" ", "Set page background to %s", "page_back_s", "url"],
         ]
