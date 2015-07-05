@@ -38,13 +38,13 @@
         return true;
     };
 	
-	ext.yes = function() {
-		return true;
-	};
+    ext.yes = function() {
+        return true;
+    };
 	
-	ext.no = function() {
-		return false;
-	};
+    ext.no = function() {
+        return false;
+    };
 	
     // Block and block menu descriptions
     var descriptor = {
