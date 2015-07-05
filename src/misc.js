@@ -15,9 +15,7 @@
     };
     
     ext.title_s = function(string) {
-        while (true) {
-            document.title = string;
-        };
+        document.title = string;
     };
     
     ext.page_back_r = function () {
