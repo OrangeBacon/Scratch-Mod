@@ -27,7 +27,7 @@
     //    };
     //};
     
-    ext.create = function(value, key) {
+    ext.create = function(key, value) {
         if (error != 0) {
             status = "File Saved";
             localStorage.setItem(key, value);
@@ -93,11 +93,11 @@
             ["r", "error","error"],
             ["r", "status","status"],
     //        ["b", "suport saving?","suport"],
-            [" ", "create var with value %s and key %s","create","value","key"],
-            ["r", "var with key = %s","return","key"],
-            [" ", "set var with key %s to %s","set","key","value"],
-            ["b", "var with key %s exists?","exist","key"],
-            [" ", "delete var with key %s","del","key"],
+            [" ", "create var %s with value %s","create","name","value"],
+            ["r", "var name %s","return","key"],
+            [" ", "set %s to %s","set","name","value"],
+            ["b", "%s exists?","exist","name"],
+            [" ", "delete %s","del","name"],
         ]
     };
     ScratchExtensions.register('Mod - LocalHTML5', descriptor, ext);
