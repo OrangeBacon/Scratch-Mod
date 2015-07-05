@@ -32,8 +32,8 @@
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
-            ['r', '%n to the power of %n', 'power', 2, 3],
-            ["r", "%n th root of %n", "root", 3, 8],
+            ['r', '%n ^ %n', 'power', 2, 3],
+            ["r", "%n √ %n", "root", 3, 8],
             ["r", "counter", "counter_r"],
             [" ", "reset counter", "counter_s"],
             [" ", "change counter by %n", "counter_a", 1]
