@@ -31,19 +31,21 @@
             return (x > y);
         }else if (equal=="≥") {
             return (x >= y);
-        }
-    }
+        };
+    };
+    
     ext.ins = function() {
         return true;
-    }
+    };
 	
 	ext.yes = function() {
 		return true;
-	}
+	};
 	
 	ext.no = function() {
 		return false;
-	}
+	};
+	
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
