@@ -19,26 +19,18 @@
     
     ext.block = function(params, js, type, desc) {
         var blocktype = type.charAt(0);
-        console.log(blocktype);
-        blocks = blocks + "\[\'" + blocktype + "\'\, \'" + desc + "\'\, \'" + blockname + "\'\]\,";
+        blocks = blocks + "\[\'" + blocktype + "\'\, \'" + desc + "\'\, \'" + "block" + counter + "\'\]\,";
         script = script + "ext\.block" + counter + " \= function\(" + params + "\) \{" + js + "\}\;";
         counter++;
     };
     
     ext.menu = function(menname, menitem) {
-        if (menu !="") {
-            menu = menu + menname + ": [" + menitem + "],";
-        } else {
-            menu = "menus: {" + menname + ": [" + menitem + "],";
-        };
-    };
+        menu = menu + menname + ": [" + menitem + "],"
+    }
     
     ext.run = function() {
-        if (menu !="") {
-            menu = menu + "}";
-        };
-        console.log("\(function\(ext\) \{ext\._shutdown \= function\(\) \{\}; ext\._getStatus \= function\(\) \{return \{status\: 2, msg\: \'Ready\'\};\};" + script + "var descriptor \= \{blocks: \[" + blocks + "\]\, menus\: \{" + menu + "\};ScratchExtensions\.register\(\'" + name + "\'\, descriptor\, ext\)\;\}\)\(\{\}\)\;")
-        eval("\(function\(ext\) \{ext\._shutdown \= function\(\) \{\}; ext\._getStatus \= function\(\) \{return \{status\: 2, msg\: \'Ready\'\};\};" + script + "var descriptor \= \{blocks: \[" + blocks + "\]\," + menu + "\};ScratchExtensions\.register\(\'" + name + "\'\, descriptor\, ext\)\;\}\)\(\{\}\)\;");
+        console.log("Loading Custom Extension " + "\(function\(ext\) \{ext\._shutdown \= function\(\) \{\}; ext\._getStatus \= function\(\) \{return \{status\: 2, msg\: \'Ready\'\};\};" + script + "var descriptor \= \{blocks: \[" + blocks + "\]\, menus\: \{" + menu + "\};ScratchExtensions\.register\(\'" + name + "\'\, descriptor\, ext\)\;\}\)\(\{\}\)\;")
+        eval("\(function\(ext\) \{ext\._shutdown \= function\(\) \{\}; ext\._getStatus \= function\(\) \{return \{status\: 2, msg\: \'Ready\'\};\};" + script + "var descriptor \= \{blocks: \[" + blocks + "\]\, menus\: \{" + menu + "\}\};ScratchExtensions\.register\(\'" + name + "\'\, descriptor\, ext\)\;\}\)\(\{\}\)\;");
     };
     
     ext.jar = function(script) {
@@ -62,7 +54,7 @@
     
     var descriptor = {
         blocks: [
-            [' ', 'create block: params %s js %s type %m.type desc %s', 'block', "a", "return a", "r - reporter", "true %s"],
+            [' ', 'create block: params %s js %s type %m.type desc %s', 'block', "custom", "hello", "return true", "r", "true %s"],
             [' ', 'eval %s', 'jar', 'true'],
             ['r', 'eval return %s', 'jar2', 'true'],
             ['b', 'eval return %s', 'jar3', 'true'],
