@@ -18,9 +18,9 @@
     };
     
     ext.block = function(params, js, type, desc) {
-        type = type.charAt(0);
-        console.log(type);
-        blocks = blocks + "\[\'" + type + "\'\, \'" + desc + "\'\, \'" + blockname + "\'\]\,";
+        var blocktype = type.charAt(0);
+        console.log(blocktype);
+        blocks = blocks + "\[\'" + blocktype + "\'\, \'" + desc + "\'\, \'" + blockname + "\'\]\,";
         script = script + "ext\.block" + counter + " \= function\(" + params + "\) \{" + js + "\}\;";
         counter++;
     };
