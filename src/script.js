@@ -4,6 +4,7 @@
     var menu = "";
     var script = "";
     var counter = 1;
+    var initvar = "";
     
     ext._shutdown = function() {};
     ext._getStatus = function() {
@@ -28,9 +29,13 @@
         menu = menu + menname + ": [" + menitem + "],"
     }
     
+    ext.init = function(name,value) {
+        initvar = initvar + "var " + name + " = \"" + value + "\"\;"
+    }
+    
     ext.run = function() {
         console.log("Loading Custom Extension " + "\(function\(ext\) \{ext\._shutdown \= function\(\) \{\}; ext\._getStatus \= function\(\) \{return \{status\: 2, msg\: \'Ready\'\};\};" + script + "var descriptor \= \{blocks: \[" + blocks + "\]\, menus\: \{" + menu + "\};ScratchExtensions\.register\(\'" + name + "\'\, descriptor\, ext\)\;\}\)\(\{\}\)\;")
-        eval("\(function\(ext\) \{ext\._shutdown \= function\(\) \{\}; ext\._getStatus \= function\(\) \{return \{status\: 2, msg\: \'Ready\'\};\};" + script + "var descriptor \= \{blocks: \[" + blocks + "\]\, menus\: \{" + menu + "\}\};ScratchExtensions\.register\(\'" + name + "\'\, descriptor\, ext\)\;\}\)\(\{\}\)\;");
+        eval("\(function\(ext\) \{" + initvar + "ext\._shutdown \= function\(\) \{\}; ext\._getStatus \= function\(\) \{return \{status\: 2, msg\: \'Ready\'\};\};" + script + "var descriptor \= \{blocks: \[" + blocks + "\]\, menus\: \{" + menu + "\}\};ScratchExtensions\.register\(\'" + name + "\'\, descriptor\, ext\)\;\}\)\(\{\}\)\;");
     };
     
     ext.jar = function(script) {
@@ -54,15 +59,16 @@
     
     var descriptor = {
         blocks: [
-            [' ', 'create block: params %s js %s type %m.type desc %s', 'block', "custom", "hello", "return true", "r", "true %s"],
+            [" ", "start blockset name %s", "start", "name"],
+            [" ", "global var %s value %s", "init", "name", "value"],
+            [' ', 'create block: params %s js %s type %m.type desc %s', 'block', "a,b", "return a*b", "r - reporter", "%n * %n"],
+            [" ", "create menu name %s items %s", "menu"],
+            [" ", "load blockset", "run"],
             [' ', 'eval %s', 'jar', 'true'],
             ['r', 'eval return %s', 'jar2', 'true'],
             ['b', 'eval return %s', 'jar3', 'true'],
             ["r", "comment value", "commentget"],
             [" ", "set comment to %s", "commentset", "comment"],
-            [" ", "start blockset name %s", "start", "name"],
-            [" ", "create menu name %s items %s", "menu"],
-            [" ", "load blockset", "run"],
         ],
         menus: {
             type: ["r - reporter", " - stack", "w - stack that waits", "R - reporter that waits", "e - if/else", "o - clear block", "p - dome", "f - end", "h - hat", "c - loop", "b - booleen"]
