@@ -5,6 +5,7 @@
     var script = "";
     var counter = 1;
     var initvar = "";
+    var acturl = "";
     
     ext._shutdown = function() {};
     ext._getStatus = function() {
@@ -33,9 +34,13 @@
         initvar = initvar + "var " + name + " = \"" + value + "\"\;"
     }
     
+    ext.urlset = function(url) {
+        acturl = "url: \"http\:\/\/" + url + "\"";
+    }
+    
     ext.run = function() {
         console.log("Loading Custom Extension " + "\(function\(ext\) \{ext\._shutdown \= function\(\) \{\}; ext\._getStatus \= function\(\) \{return \{status\: 2, msg\: \'Ready\'\};\};" + script + "var descriptor \= \{blocks: \[" + blocks + "\]\, menus\: \{" + menu + "\};ScratchExtensions\.register\(\'" + name + "\'\, descriptor\, ext\)\;\}\)\(\{\}\)\;")
-        eval("\(function\(ext\) \{" + initvar + "ext\._shutdown \= function\(\) \{\}; ext\._getStatus \= function\(\) \{return \{status\: 2, msg\: \'Ready\'\};\};" + script + "var descriptor \= \{blocks: \[" + blocks + "\]\, menus\: \{" + menu + "\}\};ScratchExtensions\.register\(\'" + name + "\'\, descriptor\, ext\)\;\}\)\(\{\}\)\;");
+        eval("\(function\(ext\) \{" + initvar + "ext\._shutdown \= function\(\) \{\}; ext\._getStatus \= function\(\) \{return \{status\: 2, msg\: \'Ready\'\};\};" + script + "var descriptor \= \{blocks: \[" + blocks + "\]\, menus\: \{" + menu + "\}\," + acturl + "\};ScratchExtensions\.register\(\'" + name + "\'\, descriptor\, ext\)\;\}\)\(\{\}\)\;");
     };
     
     ext.jar = function(script) {
@@ -63,6 +68,7 @@
             [" ", "global var %s value %s", "init", "name", "value"],
             [' ', 'create block: params %s js %s type %m.type desc %s', 'block', "a,b", "return a*b", "r - reporter", "%n * %n"],
             [" ", "create menu name %s items %s", "menu"],
+            [" ", "info url http://%s", "urlset", "scratch.mit.edu"],
             [" ", "load blockset", "run"],
             [' ', 'eval %s', 'jar', 'true'],
             ['r', 'eval return %s', 'jar2', 'true'],
