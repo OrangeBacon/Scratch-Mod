@@ -6,6 +6,7 @@
     var counter = 1;
     var initvar = "";
     var acturl = "";
+    var acttext = "Ready";
     
     ext._shutdown = function() {};
     ext._getStatus = function() {
@@ -38,9 +39,12 @@
         acturl = "url: \"http\:\/\/" + url + "\"";
     }
     
+    ext.stat = function(text) {
+        acttext = text
+    }
+    
     ext.run = function() {
-        console.log("loading Extension Code\: ""\(function\(ext\) \{" + initvar + "ext\._shutdown \= function\(\) \{\}; ext\._getStatus \= function\(\) \{return \{status\: 2, msg\: \'Ready\'\};\};" + script + "var descriptor \= \{blocks: \[" + blocks + "\]\, menus\: \{" + menu + "\}\," + acturl + "\};ScratchExtensions\.register\(\'" + name + "\'\, descriptor\, ext\)\;\}\)\(\{\}\)\;)
-        eval("\(function\(ext\) \{" + initvar + "ext\._shutdown \= function\(\) \{\}; ext\._getStatus \= function\(\) \{return \{status\: 2, msg\: \'Ready\'\};\};" + script + "var descriptor \= \{blocks: \[" + blocks + "\]\, menus\: \{" + menu + "\}\," + acturl + "\};ScratchExtensions\.register\(\'" + name + "\'\, descriptor\, ext\)\;\}\)\(\{\}\)\;");
+        eval("\(function\(ext\) \{" + initvar + "ext\._shutdown \= function\(\) \{\}; ext\._getStatus \= function\(\) \{return \{status\: 2, msg\: \'" + acttext + "\'\};\};" + script + "var descriptor \= \{blocks: \[" + blocks + "\]\, menus\: \{" + menu + "\}\," + acturl + "\};ScratchExtensions\.register\(\'" + name + "\'\, descriptor\, ext\)\;\}\)\(\{\}\)\;");
     };
     
     ext.jar = function(script) {
@@ -67,8 +71,9 @@
             [" ", "start blockset name %s", "start", "name"],
             [" ", "global var %s value %s", "init", "name", "value"],
             [' ', 'create block: params %s js %s type %m.type desc %s', 'block', "a,b", "return a*b", "r - reporter", "%n * %n"],
-            [" ", "create menu name %s items %s", "menu"],
+            [" ", "create menu name %s items %s", "menu", "name", "\"hello\"\, \"world\""],
             [" ", "info url http://%s", "urlset", "scratch.mit.edu"],
+            [" ", "status text %s", "stat", "Ready"],
             [" ", "load blockset", "run"],
             [' ', 'eval %s', 'jar', 'true'],
             ['r', 'eval return %s', 'jar2', 'true'],
