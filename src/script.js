@@ -47,6 +47,10 @@
         eval("\(function\(ext\) \{" + initvar + "ext\._shutdown \= function\(\) \{\}; ext\._getStatus \= function\(\) \{return \{status\: 2, msg\: \'" + acttext + "\'\};\};" + script + "var descriptor \= \{blocks: \[" + blocks + "\]\, menus\: \{" + menu + "\}\," + acturl + "\};ScratchExtensions\.register\(\'" + name + "\'\, descriptor\, ext\)\;\}\)\(\{\}\)\;");
     };
     
+    ext.note = function(text) {
+        ScratchExtensions.notify(text);
+    };
+    
     ext.jar = function(script) {
         eval(script);
     };
@@ -75,6 +79,7 @@
             [" ", "info url http://%s", "urlset", "scratch.mit.edu"],
             [" ", "status text %s", "stat", "Ready"],
             [" ", "load blockset", "run"],
+            [" ", "notify %s", "note", "Hello World!"]
             [' ', 'eval %s', 'jar', 'true'],
             ['r', 'eval return %s', 'jar2', 'true'],
             ['b', 'eval return %s', 'jar3', 'true'],
