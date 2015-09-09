@@ -79,7 +79,7 @@
             [" ", "info url http://%s", "urlset", "scratch.mit.edu"],
             [" ", "status text %s", "stat", "Ready"],
             [" ", "load blockset", "run"],
-            [" ", "notify %s", "note", "Hello World!"]
+            [" ", "notify %s", "note", "Hello World!"],
             [' ', 'eval %s', 'jar', 'true'],
             ['r', 'eval return %s', 'jar2', 'true'],
             ['b', 'eval return %s', 'jar3', 'true'],
